@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Clock with HTML, CSS & JavaScript</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Analog-Style Digital Clock</h1>
+      <p>A modern clock with analog-style dial and digital display.</p>
+      <div class="navigation">
+        <button class="nav-btn active" data-target="clock">Clock</button>
+        <button class="nav-btn" data-target="timer">Timer</button>
+        <button class="nav-btn" data-target="stopwatch">Stopwatch</button>
+        <button class="nav-btn" data-target="alarm">Alarm</button>
+        <button class="nav-btn" data-target="blog">Blog</button>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="clock-section">
+        <div class="clock-container">
+          <div class="clock-face">
+            <!-- Hour marks -->
+            <div class="hour-marks" id="hour-marks"></div>
+            
+            <!-- Hour numbers -->
+            <div class="hour-numbers" id="hour-numbers"></div>
+            
+            <!-- Clock hands -->
+            <div class="hand hour-hand" id="hour-hand"></div>
+            <div class="hand minute-hand" id="minute-hand"></div>
+            <div class="hand second-hand" id="second-hand"></div>
+            
+            <!-- Center dot -->
+            <div class="center-dot"></div>
+            
+            <!-- Digital time display -->
+            <div class="digital-display" id="digital-time">00:00:00</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="date-section">
+        <!-- Clock View -->
+        <div id="clock-view">
+          <div class="date-display">
+            <div class="date-day" id="date-day">00</div>
+            <div class="date-month-year" id="date-month-year">Month Year</div>
+            <div class="time-display" id="time-display">00:00:00</div>
+            <div class="ampm-display" id="ampm-display">AM</div>
+          </div>
+        </div>
+
+        <!-- Timer View -->
+        <div id="timer-view" class="hidden">
+          <h2 class="section-title">Timer</h2>
+          <div class="timer-controls">
+            <div class="time-inputs">
+              <div>
+                <input type="number" id="hours" class="time-input" min="0" max="23" value="0">
+                <div class="time-label">Hours</div>
+              </div>
+              <div>
+                <input type="number" id="minutes" class="time-input" min="0" max="59" value="5">
+                <div class="time-label">Minutes</div>
+              </div>
+              <div>
+                <input type="number" id="seconds" class="time-input" min="0" max="59" value="0">
+                <div class="time-label">Seconds</div>
+              </div>
+            </div>
+            <div class="timer-display" id="timer-display">05:00</div>
+            <div class="control-buttons">
+              <button id="start-timer" class="btn btn-primary">Start</button>
+              <button id="pause-timer" class="btn btn-secondary" disabled>Pause</button>
+              <button id="reset-timer" class="btn btn-secondary">Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stopwatch View -->
+        <div id="stopwatch-view" class="hidden">
+          <h2 class="section-title">Stopwatch</h2>
+          <div class="stopwatch-controls">
+            <div class="stopwatch-display" id="stopwatch-display">00:00:00</div>
+            <div class="control-buttons">
+              <button id="start-stopwatch" class="btn btn-primary">Start</button>
+              <button id="pause-stopwatch" class="btn btn-secondary" disabled>Pause</button>
+              <button id="lap-stopwatch" class="btn btn-secondary">Lap</button>
+              <button id="reset-stopwatch" class="btn btn-secondary">Reset</button>
+            </div>
+            <div class="stopwatch-laps" id="stopwatch-laps"></div>
+          </div>
+        </div>
+
+        <!-- Alarm View -->
+        <div id="alarm-view" class="hidden">
+          <h2 class="section-title">Alarm</h2>
+          <div class="alarm-controls">
+            <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 20px;">
+              <input type="time" id="alarm-time" class="time-input" style="width: 150px;">
+              <button id="add-alarm" class="btn btn-primary">Add Alarm</button>
+            </div>
+            <div class="alarm-list" id="alarm-list">
+              <!-- Alarm items will be added here dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog View -->
+        <div id="blog-view" class="hidden">
+          <h2 class="section-title"> Digital Clock</h2>
+          <div class="blog-content">
+            <h2>Features</h2>
+            <p>This digital clock application provides multiple time management features:</p>
+            <ul style="margin-left: 20px; margin-bottom: 15px;">
+              <li><strong>Analog Clock:</strong> Traditional clock face with moving hands</li>
+              <li><strong>Timer:</strong> Set a countdown timer for specific durations</li>
+              <li><strong>Stopwatch:</strong> Measure elapsed time with lap functionality</li>
+              <li><strong>Alarm:</strong> Set multiple alarms with custom times</li>
+            </ul>
+            
+            <h2>How to Use</h2>
+            <p><strong>Clock:</strong> The main screen shows the current time with both analog and digital displays.</p>
+            <p><strong>Timer:</strong> Set hours, minutes, and seconds for your countdown. Start, pause, or reset the timer as needed.</p>
+            <p><strong>Stopwatch:</strong> Start timing and record lap times. Useful for workouts or competitions.</p>
+            <p><strong>Alarm:</strong> Add multiple alarms by selecting a time and clicking "Add Alarm". Toggle alarms on/off or delete them as needed.</p>
+            
+            <h2>Technology</h2>
+            <p>This application is built with HTML, CSS, and JavaScript. It uses modern CSS features like Flexbox and CSS variables for consistent styling.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>Analog-Style Digital Clock | Created with HTML, CSS & JavaScript | <B>SHILPI KUMARI</B></p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
