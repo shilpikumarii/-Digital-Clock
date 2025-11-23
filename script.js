@@ -1,4 +1,34 @@
- // Clock functionality
+// Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const themeText = document.getElementById('theme-text');
+    const body = document.body;
+
+    // Check for saved theme or default to dark
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    body.setAttribute('data-theme', currentTheme);
+    updateThemeButton(currentTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeButton(newTheme);
+    });
+
+    function updateThemeButton(theme) {
+      if (theme === 'dark') {
+        themeIcon.textContent = '☀️';
+        themeText.textContent = 'Light Mode';
+      } else {
+        themeIcon.textContent = '🌙';
+        themeText.textContent = 'Dark Mode';
+      }
+    }
+
+    // Clock functionality
     function createClockFace() {
       const hourMarks = document.getElementById('hour-marks');
       const hourNumbers = document.getElementById('hour-numbers');
@@ -69,8 +99,9 @@
       // Update date display
       const day = now.getDate();
       const monthYear = now.toLocaleDateString(undefined, { month: 'long', year: 'numeric' });
+      const dayName = now.toLocaleDateString(undefined, { weekday: 'long' });
       
-      document.getElementById('date-day').textContent = day;
+      document.getElementById('date-day').textContent = `${dayName}, ${day}`;
       document.getElementById('date-month-year').textContent = monthYear;
     }
 
@@ -385,4 +416,4 @@
       // Check alarms every minute
       setInterval(checkAlarms, 60000);
     });
- 
+  
