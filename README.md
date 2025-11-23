@@ -1,4 +1,4 @@
-# -Digital-Clock
+# Digital-Clock
 Key Features
 Real-time update – The clock automatically updates every second.
 Date Display – Show today’s date below the clock.
